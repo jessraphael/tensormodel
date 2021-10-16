@@ -4,7 +4,7 @@ import torch
 import re
 import json
 import os
-from flask import Flask, render_template
+from flask import Flask, render_template, make_response
 from flask import request
 
 # Setting up model
@@ -83,10 +83,8 @@ def get_all_msgs_on_date(msgs, selected_date):
     return output
 
 
-def sentiment_analysis(file_path):
-    with open(file_path) as f:
-        data = json.loads(f.read())
-        msgs = data['messages']
+def sentiment_analysis(data):
+    msgs = data['messages']
 
     unique_dates = getting_unique_dates(msgs)
     output = {}
@@ -97,6 +95,23 @@ def sentiment_analysis(file_path):
         temp = {}
         for user in scores:
             temp[user] = scores[user]
-        output[unique_date] = temp
+        output[unique_date.strftime('%Y-%m-%dT%H:%M:%S')] = temp
 
     return output
+
+
+app = Flask(__name__)
+
+
+@app.route('/get_sentiment_score', methods=['POST'])
+def get_sentiment_score():
+    data = request.get_json()
+    data = json.loads(data)
+    output = sentiment_analysis(data)
+
+    return make_response(output, 200)
+
+
+if __name__ == '__main__':
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port)
