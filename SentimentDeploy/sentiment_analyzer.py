@@ -2,12 +2,13 @@ from transformers import AutoTokenizer, AutoModelForSequenceClassification
 import torch
 from datetime import datetime
 
+
 # Setting up model
 class SentimentAnalyzer():
 
     def __init__(self):
-        self.tokenizer = AutoTokenizer.from_pretrained('nlptown/bert-base-multilingual-uncased-sentiment')
-        self.model = AutoModelForSequenceClassification.from_pretrained('nlptown/bert-base-multilingual-uncased-sentiment')
+        self.tokenizer = AutoTokenizer.from_pretrained('nlptown/bert-base-cased')
+        self.model = AutoModelForSequenceClassification.from_pretrained('nlptown/bert-base-cased')
 
     def get_unique_users(self, msgs):
         users = []
