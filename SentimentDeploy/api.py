@@ -3,7 +3,7 @@ from typing import Dict
 from fastapi import Depends, FastAPI
 from pydantic import BaseModel
 
-from .sentiment-analyzer import SentimentAnalyzer, getSA
+from .sentiment_analyzer import SentimentAnalyzer, getSA
 
 app = FastAPI()
 
