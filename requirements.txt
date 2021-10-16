@@ -1,7 +1,7 @@
-torch==1.9.1+cpu
+# torch==1.9.1+cpu
 torchvision==0.10.1+cpu
 torchaudio==0.9.1
-https://download.pytorch.org/whl/cpu/torch-1.7.1%2Bcpu-cp39-cp39-linux_x86_64.whl
+https://download.pytorch.org/whl/cpu/torch-1.9.1%2Bcpu-cp39-cp39-linux_x86_64.whl
 transformers==3.0.2
 numpy==1.19.1
 flask
