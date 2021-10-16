@@ -11,6 +11,8 @@ from flask import request
 tokenizer = AutoTokenizer.from_pretrained('nlptown/bert-base-multilingual-uncased-sentiment')
 model = AutoModelForSequenceClassification.from_pretrained('nlptown/bert-base-multilingual-uncased-sentiment')
 
+port = int(os.getenv('PORT'))
+host = "whalefoodai.herokuapp.com"
 
 def get_unique_users(msgs):
     users = []
@@ -113,5 +115,6 @@ def get_sentiment_score():
 
 
 if __name__ == '__main__':
-    port = int(os.environ.get("PORT", 5000))
-    app.run(host='0.0.0.0', port=port)
+    # port = int(os.environ.get("PORT", 5000))
+    # app.run(host='0.0.0.0', port=port)
+    app.run(threaded=True, debug=False, port=port)
