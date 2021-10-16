@@ -16,7 +16,7 @@ class SentimentResponse(BaseModel):
 	output: list[Dict]
 
 
-@app.post("/sentiiment_analyze", response_model=SentimentResponse)
+@app.post("/sentiment_analyze", response_model=SentimentResponse)
 def classify(request: SentimentRequest, model: SentimentAnalyzer = Depends(getSA())):
 	output = model.sentiment_analysis(request.text)
 	return SentimentResponse(
