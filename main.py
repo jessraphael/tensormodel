@@ -100,3 +100,9 @@ def sentiment_analysis(file_path):
         output[unique_date] = temp
 
     return output
+
+
+
+file_path = "result.json"
+
+print(sentiment_analysis(file_path))

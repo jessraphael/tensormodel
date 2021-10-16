@@ -8,7 +8,7 @@ import pandas as pd
 
 f = open('jiawei.json')
 
-data = json.loads(f)
+data = json.load(f)
 
 
 dataframe = pd.DataFrame.from_dict(data, orient="index")
