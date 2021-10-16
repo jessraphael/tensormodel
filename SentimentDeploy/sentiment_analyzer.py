@@ -7,8 +7,8 @@ from datetime import datetime
 class SentimentAnalyzer():
 
     def __init__(self):
-        self.tokenizer = AutoTokenizer.from_pretrained('nlptown/bert-base-cased')
-        self.model = AutoModelForSequenceClassification.from_pretrained('nlptown/bert-base-cased')
+        self.tokenizer = AutoTokenizer.from_pretrained('bert-base-cased')
+        self.model = AutoModelForSequenceClassification.from_pretrained('bert-base-cased')
 
     def get_unique_users(self, msgs):
         users = []
