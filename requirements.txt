@@ -2,6 +2,7 @@
 torchvision==0.10.1
 torchaudio==0.9.1
 https://download.pytorch.org/whl/cpu/torch-1.9.1%2Bcpu-cp39-cp39-linux_x86_64.whl
+setuptools-rust==0.12.1
 transformers==3.0.2
 numpy==1.19.1
 flask
